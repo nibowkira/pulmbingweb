@@ -232,29 +232,32 @@ textarea:focus-visible {
   gap: 16px;
 }
 
-/* Simple Typographic ABAY Wordmark */
+/* Official ABAY Logo Styling */
 .logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-wordmark {
-  font-size: 1.45rem;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  color: var(--navy);
-  line-height: 1;
+.site-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 260px;
+  display: block;
+  object-fit: contain;
 }
 
-.logo-sub {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-top: 2px;
+.footer-logo-img {
+  height: 44px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+  .site-logo-img {
+    height: 38px;
+    max-width: 200px;
+  }
 }
 
 /* Nav Links */
