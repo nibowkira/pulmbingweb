@@ -10,13 +10,14 @@
    ============================================================ */
 
 // ── 1. Centralized Business Contact Configuration ───────────
-// To connect official contact channels before launch, fill these values:
 const BUSINESS_CONFIG = {
-  phone: null,     // Verified phone number (e.g., '+251 91 123 4567')
-  whatsapp: null,  // Verified WhatsApp link or phone (e.g., '+251 91 123 4567')
-  telegram: null,  // Verified Telegram username (e.g., 'https://t.me/abay_plumbing')
-  email: null,     // Verified business email (e.g., 'contact@abayplumbing.com')
-  formEndpoint: null // Form submission endpoint URL (e.g., Formspree or internal API)
+  phone: '0975 753 773',                // Official business phone
+  phoneTel: '+251975753773',            // Dialable format
+  whatsapp: '+251 975 753 773',         // WhatsApp business line
+  whatsappLink: 'https://wa.me/251975753773',
+  telegram: null,                       // Telegram handle (optional)
+  email: 'abayplumbing.addis@gmail.com', // Official business email
+  formEndpoint: null                    // Form submission endpoint (Formspree or internal API)
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ── 3. Populate Contact Cards with Config / Placeholders ──
+  // ── 3. Populate Contact Cards with Config ─────────────────
   function setupContactCards() {
     const phoneEl = document.getElementById('contact-phone-val');
     const waEl = document.getElementById('contact-whatsapp-val');
@@ -38,8 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (phoneEl) {
       if (BUSINESS_CONFIG.phone) {
         phoneEl.textContent = BUSINESS_CONFIG.phone;
-        phoneEl.closest('.contact-card').classList.add('configured');
-        phoneEl.closest('a').href = 'tel:' + BUSINESS_CONFIG.phone.replace(/\s+/g, '');
+        const card = phoneEl.closest('.contact-card');
+        card.classList.add('configured');
+        const badge = card.querySelector('.contact-card-badge');
+        if (badge) badge.textContent = 'Call Now';
+        card.setAttribute('href', 'tel:' + (BUSINESS_CONFIG.phoneTel || BUSINESS_CONFIG.phone.replace(/[^\d+]/g, '')));
       } else {
         phoneEl.textContent = '[Phone number pending launch]';
         phoneEl.closest('a').removeAttribute('href');
@@ -49,8 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (waEl) {
       if (BUSINESS_CONFIG.whatsapp) {
         waEl.textContent = BUSINESS_CONFIG.whatsapp;
-        waEl.closest('.contact-card').classList.add('configured');
-        waEl.closest('a').href = 'https://wa.me/' + BUSINESS_CONFIG.whatsapp.replace(/[^\d]/g, '');
+        const card = waEl.closest('.contact-card');
+        card.classList.add('configured');
+        const badge = card.querySelector('.contact-card-badge');
+        if (badge) badge.textContent = 'Chat on WhatsApp';
+        card.setAttribute('href', BUSINESS_CONFIG.whatsappLink || ('https://wa.me/' + BUSINESS_CONFIG.whatsapp.replace(/[^\d]/g, '')));
       } else {
         waEl.textContent = '[WhatsApp channel pending launch]';
         waEl.closest('a').removeAttribute('href');
@@ -71,8 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emailEl) {
       if (BUSINESS_CONFIG.email) {
         emailEl.textContent = BUSINESS_CONFIG.email;
-        emailEl.closest('.contact-card').classList.add('configured');
-        emailEl.closest('a').href = 'mailto:' + BUSINESS_CONFIG.email;
+        const card = emailEl.closest('.contact-card');
+        card.classList.add('configured');
+        const badge = card.querySelector('.contact-card-badge');
+        if (badge) badge.textContent = 'Send Email';
+        card.setAttribute('href', 'mailto:' + BUSINESS_CONFIG.email);
       } else {
         emailEl.textContent = '[Email address pending launch]';
         emailEl.closest('a').removeAttribute('href');
