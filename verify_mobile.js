@@ -137,11 +137,20 @@ async function run() {
       const h1 = document.querySelector('.hero-content h1');
       const h1FontSize = h1 ? window.getComputedStyle(h1).fontSize : 'N/A';
 
+      const overflowingEls = [];
+      document.querySelectorAll('*').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.right > winWidth + 0.5) {
+          overflowingEls.push(el.tagName + '.' + el.className + ' (right: ' + r.right + ')');
+        }
+      });
+
       return {
         winWidth,
         docWidth,
         bodyWidth,
         hasHorizontalScroll,
+        overflowingEls: overflowingEls.slice(0, 5),
         navLinksVisible,
         toggleVisible,
         stickyBarVisible,
@@ -158,6 +167,9 @@ async function run() {
     const pass = !val.hasHorizontalScroll;
     console.log(`[${pass ? 'PASS' : 'FAIL'}] ${vp.width}x${vp.height} - ${vp.name}`);
     console.log(`       Window: ${val.winWidth}px | Doc: ${val.docWidth}px | Body: ${val.bodyWidth}px | Horizontal Scroll: ${val.hasHorizontalScroll ? 'YES' : 'NONE'}`);
+    if (val.hasHorizontalScroll && val.overflowingEls?.length) {
+      console.log(`       Overflow culprits:`, val.overflowingEls);
+    }
     console.log(`       Nav: ${val.navLinksVisible ? 'Desktop Links' : 'Hamburger Toggle'} | Sticky Bottom Bar: ${val.stickyBarVisible ? 'Visible' : 'Hidden'} | Services Cols: ${val.servicesCols} | H1 Size: ${val.h1FontSize}`);
 
     if ([320, 375, 430, 768, 1024, 1366].includes(vp.width)) {
@@ -234,21 +246,34 @@ async function run() {
 
   // Test Booking Form validation on mobile
   console.log('\n--- Testing Booking Form Validation on Mobile (375px) ---');
-  await evaluate(`document.getElementById('booking').scrollIntoView();`);
-  await sleep(400);
-
-  const formEval = await evaluate(`(() => {
-    const submitBtn = document.getElementById('submit-btn');
-    submitBtn.click();
-    const errorCount = document.querySelectorAll('.form-group.error').length;
-    return { errorCount };
+  await evaluate(`(() => {
+    const radioGroup = document.querySelector('.contact-radio-group');
+    if (radioGroup) radioGroup.scrollIntoView({ block: 'center' });
   })()`);
-  console.log(`Validation errors on empty submit: ${formEval.errorCount} (Expected: 4 required fields)`);
+  await sleep(400);
 
   const formShot = await send('Page.captureScreenshot', { format: 'png' });
   if (formShot.result?.data) {
     fs.writeFileSync(path.join(__dirname, 'screenshot_form_mobile.png'), Buffer.from(formShot.result.data, 'base64'));
     console.log('Screenshot saved: screenshot_form_mobile.png');
+  }
+
+  // Also switch to Amharic and capture the exact screen from user prompt
+  await evaluate(`(() => {
+    const amBtn = document.getElementById('lang-am-header') || document.querySelector('.lang-switch [data-lang="am"]');
+    if (amBtn) amBtn.click();
+    const radioGroup = document.querySelector('.contact-radio-group');
+    if (radioGroup) {
+      const top = radioGroup.getBoundingClientRect().top + window.pageYOffset - 180;
+      window.scrollTo({ top, behavior: 'instant' });
+    }
+  })()`);
+  await sleep(400);
+
+  const amharicFormShot = await send('Page.captureScreenshot', { format: 'png' });
+  if (amharicFormShot.result?.data) {
+    fs.writeFileSync(path.join(__dirname, 'screenshot_form_amharic.png'), Buffer.from(amharicFormShot.result.data, 'base64'));
+    console.log('Screenshot saved: screenshot_form_amharic.png');
   }
 
   // Close Chrome

@@ -289,17 +289,66 @@ textarea:focus-visible {
   border-radius: 2px;
 }
 
-/* Header Actions */
-.header-actions {
+/* Header Right Controls */
+.header-right-controls {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+.header-cta-desktop {
+  display: inline-flex;
+}
+
+/* Creative Sleek Language Switcher */
+.lang-switch-creative {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-subtle);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(11, 36, 80, 0.04);
+}
+
+.lang-switch-creative .lang-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 13px;
+  min-height: 32px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  line-height: 1;
+}
+
+.lang-switch-creative .lang-btn:hover {
+  color: var(--navy);
+}
+
+.lang-switch-creative .lang-btn.active {
+  background-color: #FFFFFF;
+  color: var(--blue);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(11, 36, 80, 0.12);
+}
+
+.lang-text-short {
+  display: none;
+}
+
 @media (min-width: 1024px) and (max-width: 1199px) {
   .site-logo-img {
     height: 38px;
-    max-width: 185px;
+    max-width: 180px;
   }
   .nav-links {
     gap: 10px;
@@ -308,21 +357,22 @@ textarea:focus-visible {
     font-size: 0.8125rem;
     padding: 4px 0;
   }
-  .header-actions {
+  .header-right-controls {
     gap: 8px;
   }
-  .header-actions .btn-primary {
-    padding: 9px 14px;
+  .header-cta-desktop {
+    padding: 9px 13px;
     font-size: 0.8125rem;
     gap: 6px;
   }
-  .lang-switch button {
-    padding: 4px 8px;
+  .lang-switch-creative .lang-btn {
+    padding: 5px 9px;
     font-size: 0.75rem;
   }
 }
 
-.lang-switch {
+/* Standard Lang Switch fallback (e.g. inside mobile drawer) */
+.lang-switch:not(.lang-switch-creative) {
   display: flex;
   align-items: center;
   background-color: var(--bg-subtle);
@@ -331,7 +381,7 @@ textarea:focus-visible {
   padding: 3px;
 }
 
-.lang-switch button {
+.lang-switch:not(.lang-switch-creative) button {
   background: none;
   border: none;
   padding: 5px 10px;
@@ -345,7 +395,7 @@ textarea:focus-visible {
   touch-action: manipulation;
 }
 
-.lang-switch button.active {
+.lang-switch:not(.lang-switch-creative) button.active {
   background-color: #FFFFFF;
   color: var(--navy);
   box-shadow: var(--shadow-sm);
@@ -1055,7 +1105,7 @@ textarea:focus-visible {
 }
 
 /* Inputs & Form Controls - 16px to prevent iOS Safari auto-zoom */
-.form-group input,
+.form-group input:not([type="radio"]):not([type="checkbox"]),
 .form-group select,
 .form-group textarea {
   width: 100%;
@@ -1074,7 +1124,7 @@ textarea:focus-visible {
   resize: vertical;
 }
 
-.form-group input:focus,
+.form-group input:not([type="radio"]):not([type="checkbox"]):focus,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
@@ -1083,7 +1133,7 @@ textarea:focus-visible {
   box-shadow: 0 0 0 3px rgba(8, 102, 217, 0.15);
 }
 
-.form-group.error input,
+.form-group.error input:not([type="radio"]):not([type="checkbox"]),
 .form-group.error select,
 .form-group.error textarea {
   border-color: #DC2626;
@@ -1101,34 +1151,115 @@ textarea:focus-visible {
   display: block;
 }
 
-/* Preferred Contact Method Radios */
+/* Preferred Contact Method Radios - Premium Cards */
 .contact-radio-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-radio-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  color: var(--text-main);
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 10px 10px;
+  min-height: 48px;
+  min-width: 0;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  padding: 8px 14px;
-  min-height: 44px;
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  user-select: none;
   touch-action: manipulation;
+  position: relative;
 }
 
+.contact-radio-label:hover {
+  border-color: var(--blue-subtle);
+  background-color: var(--bg-subtle);
+}
+
+/* Visually hide native radio input but keep it accessible for keyboard and screen readers */
+.contact-radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Custom sleek circular radio indicator */
+.radio-custom-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.radio-custom-indicator::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  transform: scale(0);
+  transition: transform var(--transition-fast);
+}
+
+.radio-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.radio-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+/* Active checked radio state */
 .contact-radio-label:has(input:checked) {
   border-color: var(--blue);
   background-color: var(--blue-light);
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.contact-radio-label:has(input:checked) .radio-custom-indicator {
+  border-color: var(--blue);
+  background-color: var(--blue);
+}
+
+.contact-radio-label:has(input:checked) .radio-custom-indicator::after {
+  transform: scale(1);
+}
+
+.contact-radio-label:has(input:checked) .radio-icon {
   color: var(--blue);
-  font-weight: 600;
+}
+
+.contact-radio-label:has(input:checked) .radio-text {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.contact-radio-label:focus-within {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .form-submit {
@@ -1401,16 +1532,20 @@ body.nav-open .mobile-sticky-bar {
    RESPONSIVE MEDIA QUERIES (Mobile-First Architecture)
    ============================================================ */
 
+/* ============================================================
+   RESPONSIVE MEDIA QUERIES (Mobile-First Architecture)
+   ============================================================ */
+
 /* ── Laptops & Medium Screens (< 1024px) ────────────────────── */
 @media (max-width: 1023px) {
   .nav-links {
     display: none;
   }
+  .header-cta-desktop {
+    display: none;
+  }
   .mobile-toggle {
     display: flex;
-  }
-  .header-actions .btn-primary {
-    display: none;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1464,6 +1599,17 @@ body.nav-open .mobile-sticky-bar {
   .header-inner {
     height: 62px;
   }
+  .header-right-controls {
+    gap: 8px;
+  }
+  .lang-switch-creative {
+    padding: 2px;
+  }
+  .lang-switch-creative .lang-btn {
+    padding: 5px 10px;
+    font-size: 0.78125rem;
+    min-height: 30px;
+  }
   .mobile-nav {
     top: 62px;
     height: calc(100vh - 62px);
@@ -1490,14 +1636,22 @@ body.nav-open .mobile-sticky-bar {
   }
 }
 
+/* ── Tablets/Mobile (< 640px) ──────────────────────────────── */
+@media (max-width: 640px) {
+  .contact-radio-group {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .contact-radio-label {
+    width: 100%;
+  }
+}
+
 /* ── Smartphones & Narrow Screens (< 540px) ────────────────── */
 @media (max-width: 539px) {
-  .header-actions {
-    display: none; /* Language switcher fully available in mobile drawer */
-  }
   .site-logo-img {
     height: 34px;
-    max-width: 175px;
+    max-width: 165px;
   }
   .hero-actions {
     flex-direction: column;
@@ -1515,12 +1669,6 @@ body.nav-open .mobile-sticky-bar {
   .supplies-grid {
     grid-template-columns: 1fr;
   }
-  .contact-radio-group {
-    flex-direction: column;
-  }
-  .contact-radio-label {
-    width: 100%;
-  }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -1532,15 +1680,30 @@ body.nav-open .mobile-sticky-bar {
   }
 }
 
+/* ── Extra-Compact Smartphones (<= 400px) ──────────────────── */
+@media (max-width: 400px) {
+  .lang-text-full {
+    display: none;
+  }
+  .lang-text-short {
+    display: inline;
+  }
+  .lang-switch-creative .lang-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    min-height: 28px;
+  }
+  .site-logo-img {
+    height: 32px;
+    max-width: 145px;
+  }
+}
+
 /* ── Small Smartphones (320px–375px) ───────────────────────── */
 @media (max-width: 375px) {
   .container {
     padding-left: 12px;
     padding-right: 12px;
-  }
-  .site-logo-img {
-    height: 30px;
-    max-width: 155px;
   }
   .sticky-action-btn {
     font-size: 0.75rem;
@@ -1556,5 +1719,20 @@ body.nav-open .mobile-sticky-bar {
   }
   .booking-form-card {
     padding: 18px 12px;
+  }
+}
+
+/* ── Ultra-Narrow Devices (<= 340px) ───────────────────────── */
+@media (max-width: 340px) {
+  .header-right-controls {
+    gap: 4px;
+  }
+  .site-logo-img {
+    height: 28px;
+    max-width: 130px;
+  }
+  .lang-switch-creative .lang-btn {
+    padding: 3px 6px;
+    font-size: 0.6875rem;
   }
 }
