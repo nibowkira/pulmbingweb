@@ -100,14 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Navigation
       nav_home: "Home",
       nav_services: "Services",
+      nav_projects: "Projects",
       nav_supplies: "Plumbing Supplies",
       nav_about: "About Us",
       nav_areas: "Service Areas",
       nav_contact: "Contact",
       btn_request: "Request a Plumber",
-      bar_call: "Call",
-      bar_whatsapp: "WhatsApp",
-      bar_request: "Request",
       nav_lang_label: "Language / ቋንቋ:",
 
       // Brand
@@ -194,6 +192,21 @@ document.addEventListener('DOMContentLoaded', () => {
       cat_5_desc: "Pipe cutters, PPR fusion welding accessories, gaskets, and seals.",
       cat_status: "Ask About Supplies",
 
+      // Projects
+      projects_eyebrow: "PROVEN ON-SITE CRAFTSMANSHIP",
+      projects_heading: "Recent Projects in Addis Ababa",
+      projects_intro: "Inspect our actual plumbing installations across Addis Ababa — from high-capacity underground drainage trunks to precision brick-wall PPR piping and ceiling waste systems.",
+      proj_1_badge: "Underground Drainage",
+      proj_1_title: "Heavy-Duty Pipeline & Supply Installation",
+      proj_1_desc: "Trench excavation, graded PVC drain lines, and high-pressure dual PEX supply lines for building foundations.",
+      proj_2_badge: "Ceiling & Vent Stacks",
+      proj_2_title: "Overhead Drainage & Trap Network",
+      proj_2_desc: "Structural overhead drain manifolds, P-traps, and vertical venting lines integrated cleanly into interior framing.",
+      proj_3_badge: "PPR Clean Water",
+      proj_3_title: "Masonry Wall PPR Water Distribution",
+      proj_3_desc: "Precision heat-fused PPR clean water piping, pressure-tested control valves, and distribution risers on brick walling.",
+      proj_location: "Addis Ababa • On-Site Craftsmanship",
+
       // About
       about_heading: "Your Local Plumbing Service in Addis Ababa",
       about_copy: "ABAY Plumbing & Supplies is focused on helping homes and businesses in Addis Ababa with plumbing repairs, installations, and plumbing supply inquiries. Our goal is to make requesting plumbing assistance straightforward through clear communication, practical service information, and an easy contact process.",
@@ -255,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Navigation
       nav_home: "መነሻ",
       nav_services: "አገልግሎቶች",
+      nav_projects: "ስራዎቻችን",
       nav_supplies: "የቧንቧ እቃዎች",
       nav_about: "ስለ አባይ",
       nav_areas: "የአገልግሎት ክልል",
@@ -344,6 +358,21 @@ document.addEventListener('DOMContentLoaded', () => {
       cat_5_title: "የቧንቧ መገልገያ መሳሪያዎች",
       cat_5_desc: "የPPR ማሞቂያ ማሽኖች መለዋወጫ፣ ቧንቧ መቁረጫዎች እና ጋስኬቶች።",
       cat_status: "ስለ እቃዎች ይጠይቁ",
+
+      // Projects
+      projects_eyebrow: "በተግባር የተረጋገጠ ጥራት",
+      projects_heading: "በአዲስ አበባ የተከናወኑ ስራዎቻችን",
+      projects_intro: "በአዲስ አበባ ውስጥ በተለያዩ ህንፃዎችና መኖሪያ ቤቶች ያከናወንናቸውን እውነተኛ የቧንቧ ዝርጋታዎች ይመልከቱ — የመሬት ውስጥ የፍሳሽ መስመሮች፣ የግድግዳ ፒፒአር (PPR) እና የጣሪያ ፍሳሽ ቱቦዎች።",
+      proj_1_badge: "የመሬት ውስጥ ፍሳሽ",
+      proj_1_title: "የመሬት ውስጥ የቧንቧ እና የፍሳሽ ዝርጋታ",
+      proj_1_desc: "የመሰረት ቁፋሮ፣ ደረጃቸውን የጠበቁ የፒቪሲ (PVC) የፍሳሽ መስመሮች እና ከፍተኛ ግፊት የሚቋቋሙ የውሃ ቱቦዎች ቅንብር።",
+      proj_2_badge: "የጣሪያና ግድግዳ ፍሳሽ",
+      proj_2_title: "የጣሪያ ፍሳሽ እና የትራፕ (Trap) ዝርጋታ",
+      proj_2_desc: "በጣሪያና ግድግዳ ውስጥ የተሰሩ የቆሻሻ ውሃ ማስተላለፊያ ቱቦዎች፣ የሽታ መከላከያ ትራፖች እና የንፋስ ማስወጫ መስመሮች።",
+      proj_3_badge: "የፒፒአር (PPR) ንፁህ ውሃ",
+      proj_3_title: "የግድግዳ ውስጥ ፒፒአር የውሃ መስመር ዝርጋታ",
+      proj_3_desc: "በጡብ ግድግዳ ውስጥ በጥንቃቄ የተሰሩ የፒፒአር የንፁህ ውሃ ማከፋፈያ መስመሮች፣ የቁጥጥር ቫልቮች እና አስተማማኝ ግኑኝነቶች።",
+      proj_location: "አዲስ አበባ • በእውነተኛ ስራ የተረጋገጠ",
 
       // About
       about_heading: "የአካባቢዎ አስተማማኝ የቧንቧ አገልግሎት",

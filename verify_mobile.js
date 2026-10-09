@@ -223,12 +223,11 @@ async function run() {
     const docWidth = document.documentElement.scrollWidth;
     const winWidth = window.innerWidth;
     const h1Text = document.querySelector('.hero-content h1').textContent;
-    const stickyCallText = document.querySelector('.sticky-call span').textContent;
-    const stickyRequestText = document.querySelector('.sticky-request span').textContent;
+    const stickyCallText = document.querySelector('.sticky-call span')?.textContent || 'Removed as requested';
+    const stickyRequestText = document.querySelector('.sticky-request span')?.textContent || 'Removed as requested';
     return { docWidth, winWidth, hasOverflow: docWidth > winWidth, h1Text, stickyCallText, stickyRequestText };
   })()`);
   console.log(`Amharic Active: H1 = "${amharicEval.h1Text}"`);
-  console.log(`Sticky Bar in Amharic: Call = "${amharicEval.stickyCallText}", Request = "${amharicEval.stickyRequestText}"`);
   console.log(`Amharic Horizontal Overflow: ${amharicEval.hasOverflow ? 'YES (OVERFLOW!)' : 'NONE (PERFECT)'}`);
 
   const amharicShot = await send('Page.captureScreenshot', { format: 'png' });
@@ -274,6 +273,37 @@ async function run() {
   if (amharicFormShot.result?.data) {
     fs.writeFileSync(path.join(__dirname, 'screenshot_form_amharic.png'), Buffer.from(amharicFormShot.result.data, 'base64'));
     console.log('Screenshot saved: screenshot_form_amharic.png');
+  }
+
+  // Capture projects section on mobile (375px)
+  await evaluate(`(() => {
+    const projSec = document.getElementById('projects');
+    if (projSec) projSec.scrollIntoView({ block: 'start' });
+  })()`);
+  await sleep(400);
+  const projMobileShot = await send('Page.captureScreenshot', { format: 'png' });
+  if (projMobileShot.result?.data) {
+    fs.writeFileSync(path.join(__dirname, 'screenshot_projects_mobile.png'), Buffer.from(projMobileShot.result.data, 'base64'));
+    console.log('Screenshot saved: screenshot_projects_mobile.png');
+  }
+
+  // Switch to desktop and capture projects section
+  await send('Emulation.setDeviceMetricsOverride', {
+    width: 1280,
+    height: 800,
+    deviceScaleFactor: 1,
+    mobile: false
+  });
+  await sleep(400);
+  await evaluate(`(() => {
+    const projSec = document.getElementById('projects');
+    if (projSec) projSec.scrollIntoView({ block: 'start' });
+  })()`);
+  await sleep(400);
+  const projDesktopShot = await send('Page.captureScreenshot', { format: 'png' });
+  if (projDesktopShot.result?.data) {
+    fs.writeFileSync(path.join(__dirname, 'screenshot_projects_desktop.png'), Buffer.from(projDesktopShot.result.data, 'base64'));
+    console.log('Screenshot saved: screenshot_projects_desktop.png');
   }
 
   // Close Chrome
