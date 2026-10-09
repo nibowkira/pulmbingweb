@@ -65,13 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (tgEl) {
+      const card = tgEl.closest('.contact-card');
       if (BUSINESS_CONFIG.telegram) {
         tgEl.textContent = BUSINESS_CONFIG.telegram;
-        tgEl.closest('.contact-card').classList.add('configured');
-        tgEl.closest('a').href = BUSINESS_CONFIG.telegram;
-      } else {
-        tgEl.textContent = '[Telegram channel pending launch]';
-        tgEl.closest('a').removeAttribute('href');
+        card.classList.add('configured');
+        card.href = BUSINESS_CONFIG.telegram;
+        card.style.display = 'flex';
+      } else if (card) {
+        card.style.display = 'none'; // Only show verified active channels
       }
     }
 
@@ -104,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
       nav_areas: "Service Areas",
       nav_contact: "Contact",
       btn_request: "Request a Plumber",
+      bar_call: "Call",
+      bar_whatsapp: "WhatsApp",
+      bar_request: "Request",
+      nav_lang_label: "Language / ቋንቋ:",
 
       // Brand
       brand_wordmark: "ABAY",
@@ -394,7 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
       footer_notice_heading: "የመረጃ ዝግጅት",
       footer_notice_text: "ይፋዊ የስልክ እና የመልዕክት አድራሻዎች ድረ-ገጹ ከመከፈቱ በፊት ይረጋገጣሉ።",
       footer_privacy: "የግላዊነት ማስታወሻ",
-      footer_terms: "የአገልግሎት ደንቦች"
+      footer_terms: "የአገልግሎት ደንቦች",
+      bar_call: "ደውሉ",
+      bar_whatsapp: "WhatsApp",
+      bar_request: "ባለሙያ ይጠይቁ",
+      nav_lang_label: "ቋንቋ ይምረጡ:"
     }
   };
 
@@ -458,6 +467,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileNav.classList.toggle('open');
       mobileToggle.classList.toggle('active');
       mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileNav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.classList.toggle('nav-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
@@ -465,11 +476,30 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeMobileNav = function () {
     if (mobileNav && mobileToggle) {
       mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden', 'true');
       mobileToggle.classList.remove('active');
       mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
       document.body.style.overflow = '';
     }
   };
+
+  // Close mobile drawer on Escape key press
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('open')) {
+      window.closeMobileNav();
+      mobileToggle?.focus();
+    }
+  });
+
+  // Close mobile drawer if clicking outside links/buttons inside nav
+  if (mobileNav) {
+    mobileNav.addEventListener('click', e => {
+      if (e.target === mobileNav) {
+        window.closeMobileNav();
+      }
+    });
+  }
 
 
   // ── 7. Smooth Navigation Links ────────────────────────────

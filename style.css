@@ -1,6 +1,8 @@
 /* ============================================================
    ABAY Plumbing & Supplies — Stylesheet
-   Color Palette:
+   Mobile-First, Fluid & High-Performance Design System
+
+   Brand Colors:
    - Deep Navy: #0B2450
    - Primary Blue: #0866D9
    - Pale Blue: #EFF6FF
@@ -11,7 +13,7 @@
    - Page Background: #FFFFFF / #F8FAFC
    ============================================================ */
 
-/* ── CSS Variables ─────────────────────────────────────────── */
+/* ── 1. CSS Custom Properties ──────────────────────────────── */
 :root {
   --navy: #0B2450;
   --navy-dark: #071938;
@@ -41,7 +43,7 @@
   --font-am: 'Noto Sans Ethiopic', 'Inter', sans-serif;
 }
 
-/* ── Reset & Base ──────────────────────────────────────────── */
+/* ── 2. Reset & Base Styles ────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -52,6 +54,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -61,6 +65,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 body[data-lang="am"] {
@@ -105,26 +112,19 @@ textarea:focus-visible {
   }
 }
 
-/* ── Layout & Typography ───────────────────────────────────── */
+/* ── 3. Layout & Fluid Containers ──────────────────────────── */
 .container {
   width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: clamp(14px, 4vw, 24px);
+  padding-right: clamp(14px, 4vw, 24px);
 }
 
 .section {
-  padding-top: 84px;
-  padding-bottom: 84px;
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-top: 54px;
-    padding-bottom: 54px;
-  }
+  padding-top: clamp(48px, 7vw, 84px);
+  padding-bottom: clamp(48px, 7vw, 84px);
 }
 
 .section-header {
@@ -132,20 +132,21 @@ textarea:focus-visible {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 48px;
+  margin-bottom: clamp(28px, 5vw, 48px);
 }
 
 .section-header h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 800;
   color: var(--navy);
   line-height: 1.25;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
+  word-break: break-word;
 }
 
 .section-header p {
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -163,7 +164,7 @@ textarea:focus-visible {
   margin-bottom: 14px;
 }
 
-/* ── Buttons ───────────────────────────────────────────────── */
+/* ── 4. Buttons & Interactive Touch Targets ────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -172,11 +173,13 @@ textarea:focus-visible {
   font-weight: 600;
   font-size: 0.9375rem;
   padding: 11px 22px;
+  min-height: 44px;
   border-radius: var(--radius-sm);
   border: 1.5px solid transparent;
   cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  touch-action: manipulation;
 }
 
 .btn-primary {
@@ -205,12 +208,13 @@ textarea:focus-visible {
 }
 
 .btn-lg {
-  padding: 14px 28px;
-  font-size: 1.0625rem;
+  padding: 13px 26px;
+  min-height: 48px;
+  font-size: 1rem;
   border-radius: var(--radius-md);
 }
 
-/* ── Header ────────────────────────────────────────────────── */
+/* ── 5. Header & Navigation ────────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
@@ -228,11 +232,11 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 74px;
-  gap: 16px;
+  height: 72px;
+  gap: 12px;
 }
 
-/* Official ABAY Logo Styling */
+/* Official ABAY Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -241,9 +245,9 @@ textarea:focus-visible {
 }
 
 .site-logo-img {
-  height: 44px;
+  height: clamp(34px, 4.5vw, 44px);
   width: auto;
-  max-width: 235px;
+  max-width: min(235px, 60vw);
   display: block;
   object-fit: contain;
 }
@@ -253,14 +257,7 @@ textarea:focus-visible {
   margin-bottom: 8px;
 }
 
-@media (max-width: 480px) {
-  .site-logo-img {
-    height: 36px;
-    max-width: 190px;
-  }
-}
-
-/* Nav Links - Single Line Navigation */
+/* Desktop Nav Links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -299,6 +296,32 @@ textarea:focus-visible {
   gap: 12px;
 }
 
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .site-logo-img {
+    height: 38px;
+    max-width: 185px;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 0.8125rem;
+    padding: 4px 0;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-actions .btn-primary {
+    padding: 9px 14px;
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+  .lang-switch button {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
+
 .lang-switch {
   display: flex;
   align-items: center;
@@ -311,13 +334,15 @@ textarea:focus-visible {
 .lang-switch button {
   background: none;
   border: none;
-  padding: 4px 10px;
+  padding: 5px 10px;
+  min-height: 32px;
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
   border-radius: 4px;
   transition: all var(--transition-fast);
+  touch-action: manipulation;
 }
 
 .lang-switch button.active {
@@ -326,12 +351,23 @@ textarea:focus-visible {
   box-shadow: var(--shadow-sm);
 }
 
+/* Accessible Mobile Hamburger Button (min 44x44px touch target) */
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
-  padding: 8px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  touch-action: manipulation;
+}
+
+.mobile-toggle:focus-visible {
+  outline: 2px solid var(--blue);
 }
 
 .mobile-toggle span,
@@ -339,9 +375,10 @@ textarea:focus-visible {
 .mobile-toggle span::after {
   display: block;
   width: 24px;
-  height: 2px;
+  height: 2.5px;
   background-color: var(--navy);
   transition: all var(--transition-fast);
+  border-radius: 2px;
 }
 
 .mobile-toggle span {
@@ -378,16 +415,19 @@ textarea:focus-visible {
 .mobile-nav {
   display: none;
   position: fixed;
-  top: 74px;
+  top: 72px;
   left: 0;
   right: 0;
   bottom: 0;
+  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
   background-color: #FFFFFF;
-  padding: 24px;
+  padding: 20px 24px 32px;
   border-top: 1px solid var(--border);
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 999;
 }
 
@@ -396,60 +436,68 @@ textarea:focus-visible {
 }
 
 .mobile-nav a {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   color: var(--navy);
-  padding: 10px 0;
+  padding: 12px 0;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.mobile-nav a:hover,
+.mobile-nav a:active {
+  color: var(--blue);
+}
+
 .mobile-nav-lang {
-  margin-top: 8px;
+  margin-top: 10px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 6px;
 }
 
-@media (max-width: 1024px) {
-  .nav-links {
-    display: none;
-  }
-  .mobile-toggle {
-    display: block;
-  }
-  .header-actions .btn-primary {
-    display: none;
-  }
+.mobile-nav-lang .lang-switch {
+  width: fit-content;
 }
 
-/* ── Hero Section ──────────────────────────────────────────── */
+.mobile-nav-lang .lang-switch button {
+  min-height: 38px;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+}
+
+/* ── 6. Hero Section ───────────────────────────────────────── */
 .hero {
-  padding-top: 64px;
-  padding-bottom: 72px;
+  padding-top: clamp(36px, 6vw, 64px);
+  padding-bottom: clamp(40px, 6vw, 72px);
   background-color: #FFFFFF;
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  gap: clamp(28px, 4vw, 48px);
   align-items: center;
 }
 
 .hero-content h1 {
-  font-size: 2.875rem;
+  font-size: clamp(1.85rem, 5.5vw, 2.875rem);
   font-weight: 800;
   color: var(--navy);
-  line-height: 1.18;
-  margin-top: 6px;
-  margin-bottom: 18px;
+  line-height: 1.2;
+  margin-top: 8px;
+  margin-bottom: 16px;
   letter-spacing: -0.025em;
+  word-break: break-word;
 }
 
 .hero-description {
-  font-size: 1.125rem;
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   max-width: 580px;
 }
 
@@ -457,15 +505,15 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-bottom: 34px;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .hero-trust {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding-top: 24px;
+  gap: 14px;
+  padding-top: 20px;
   border-top: 1px solid var(--border);
 }
 
@@ -512,36 +560,17 @@ textarea:focus-visible {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border);
+  background-color: var(--bg-subtle);
 }
 
 .hero-image-wrapper img {
   width: 100%;
-  height: 480px;
+  height: 460px;
   object-fit: cover;
   display: block;
 }
 
-@media (max-width: 992px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-  .hero-content h1 {
-    font-size: 2.25rem;
-  }
-  .hero-image-wrapper img {
-    height: 360px;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-trust {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-}
-
-/* ── Services Section ──────────────────────────────────────── */
+/* ── 7. Services Section ───────────────────────────────────── */
 .services {
   background-color: var(--bg-subtle);
   border-top: 1px solid var(--border);
@@ -575,6 +604,7 @@ textarea:focus-visible {
   height: 160px;
   object-fit: cover;
   border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--border-subtle);
 }
 
 .service-card-body {
@@ -608,6 +638,8 @@ textarea:focus-visible {
   font-weight: 600;
   color: var(--blue);
   cursor: pointer;
+  padding: 6px 0;
+  min-height: 44px;
 }
 
 .service-request-link svg {
@@ -620,19 +652,7 @@ textarea:focus-visible {
   transform: translateX(4px);
 }
 
-@media (max-width: 1100px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── How It Works (3 Steps) ────────────────────────────────── */
+/* ── 8. How It Works (Steps) ───────────────────────────────── */
 .how-it-works {
   background-color: #FFFFFF;
 }
@@ -647,7 +667,7 @@ textarea:focus-visible {
   background-color: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 32px 24px;
+  padding: 30px 22px;
   transition: all var(--transition-normal);
 }
 
@@ -681,13 +701,7 @@ textarea:focus-visible {
   line-height: 1.55;
 }
 
-@media (max-width: 860px) {
-  .steps-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── Plumbing Supplies Section ─────────────────────────────── */
+/* ── 9. Plumbing Supplies Section ──────────────────────────── */
 .supplies {
   background-color: var(--bg-subtle);
   border-top: 1px solid var(--border);
@@ -706,7 +720,7 @@ textarea:focus-visible {
 }
 
 .supplies-banner-content {
-  padding: 36px;
+  padding: clamp(24px, 4vw, 36px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -727,7 +741,7 @@ textarea:focus-visible {
 }
 
 .supplies-banner-content h3 {
-  font-size: 1.625rem;
+  font-size: clamp(1.35rem, 3.5vw, 1.625rem);
   font-weight: 800;
   color: var(--navy);
   line-height: 1.25;
@@ -744,7 +758,7 @@ textarea:focus-visible {
 .supplies-banner-image {
   width: 100%;
   height: 100%;
-  min-height: 260px;
+  min-height: 240px;
   object-fit: cover;
 }
 
@@ -809,31 +823,7 @@ textarea:focus-visible {
   color: var(--blue);
 }
 
-@media (max-width: 1100px) {
-  .supplies-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 800px) {
-  .supplies-banner {
-    grid-template-columns: 1fr;
-  }
-  .supplies-banner-content {
-    padding: 24px;
-  }
-  .supplies-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .supplies-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── About Section ─────────────────────────────────────────── */
+/* ── 10. About Section ─────────────────────────────────────── */
 .about {
   background-color: #FFFFFF;
 }
@@ -841,21 +831,22 @@ textarea:focus-visible {
 .about-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 48px;
+  gap: clamp(28px, 4vw, 48px);
   align-items: center;
 }
 
 .about-content h2 {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 800;
   color: var(--navy);
   line-height: 1.25;
   margin-bottom: 18px;
   letter-spacing: -0.02em;
+  word-break: break-word;
 }
 
 .about-description {
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
   color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 24px;
@@ -870,17 +861,7 @@ textarea:focus-visible {
   box-shadow: var(--shadow-md);
 }
 
-@media (max-width: 992px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .about-image img {
-    height: 320px;
-  }
-}
-
-/* ── Service Area Section ──────────────────────────────────── */
+/* ── 11. Service Area Section ──────────────────────────────── */
 .service-area {
   background-color: var(--navy);
   color: #FFFFFF;
@@ -909,10 +890,11 @@ textarea:focus-visible {
 }
 
 .service-area h2 {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 800;
   margin-bottom: 12px;
   color: #FFFFFF;
+  word-break: break-word;
 }
 
 .service-area-location-badge {
@@ -931,13 +913,13 @@ textarea:focus-visible {
 }
 
 .service-area p {
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
   color: #CBD5E1;
   margin-bottom: 28px;
   line-height: 1.6;
 }
 
-/* ── Contact Section & Request Form ────────────────────────── */
+/* ── 12. Contact Section & Request Form ────────────────────── */
 .booking {
   background-color: #FFFFFF;
 }
@@ -945,20 +927,21 @@ textarea:focus-visible {
 .booking-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 48px;
+  gap: clamp(28px, 4vw, 48px);
   align-items: flex-start;
 }
 
 .booking-info h2 {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
   font-weight: 800;
   color: var(--navy);
   line-height: 1.25;
   margin-bottom: 14px;
+  word-break: break-word;
 }
 
 .booking-info p {
-  font-size: 1.0625rem;
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 28px;
@@ -976,6 +959,7 @@ textarea:focus-visible {
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
+  min-height: 48px;
   background-color: var(--bg-subtle);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -1021,6 +1005,7 @@ textarea:focus-visible {
 .contact-card-val {
   font-size: 0.8125rem;
   color: var(--text-secondary);
+  word-break: break-all;
 }
 
 .contact-card-badge {
@@ -1029,8 +1014,9 @@ textarea:focus-visible {
   font-weight: 600;
   color: var(--text-secondary);
   background-color: var(--border);
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: var(--radius-full);
+  white-space: nowrap;
 }
 
 /* Booking Form Card */
@@ -1038,7 +1024,7 @@ textarea:focus-visible {
   background-color: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: clamp(20px, 3.5vw, 36px);
   box-shadow: var(--shadow-md);
 }
 
@@ -1068,17 +1054,24 @@ textarea:focus-visible {
   color: #DC2626;
 }
 
+/* Inputs & Form Controls - 16px to prevent iOS Safari auto-zoom */
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 10px 14px;
+  padding: 12px 14px;
+  min-height: 48px;
   background-color: var(--bg-subtle);
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text-main);
-  font-size: 0.9375rem;
+  font-size: 16px;
   transition: all var(--transition-fast);
+}
+
+.form-group textarea {
+  min-height: 96px;
+  resize: vertical;
 }
 
 .form-group input:focus,
@@ -1111,7 +1104,7 @@ textarea:focus-visible {
 /* Preferred Contact Method Radios */
 .contact-radio-group {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -1122,11 +1115,13 @@ textarea:focus-visible {
   font-size: 0.875rem;
   color: var(--text-main);
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 8px 14px;
+  min-height: 44px;
   background-color: var(--bg-subtle);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  touch-action: manipulation;
 }
 
 .contact-radio-label:has(input:checked) {
@@ -1142,6 +1137,7 @@ textarea:focus-visible {
 
 .form-submit .btn {
   width: 100%;
+  min-height: 50px;
 }
 
 .form-dev-note {
@@ -1152,7 +1148,7 @@ textarea:focus-visible {
   line-height: 1.45;
 }
 
-/* Submission Notification / Demo Notice Modal State */
+/* Feedback Demo Modal */
 .form-feedback-card {
   display: none;
   background-color: #F8FAFC;
@@ -1198,27 +1194,11 @@ textarea:focus-visible {
   margin-bottom: 16px;
 }
 
-@media (max-width: 992px) {
-  .booking-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-}
-
-@media (max-width: 640px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-  .booking-form-card {
-    padding: 24px 18px;
-  }
-}
-
-/* ── Footer ────────────────────────────────────────────────── */
+/* ── 13. Footer ────────────────────────────────────────────── */
 .site-footer {
   background-color: var(--navy-dark);
   color: #FFFFFF;
-  padding-top: 64px;
+  padding-top: clamp(48px, 6vw, 64px);
   padding-bottom: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1271,17 +1251,14 @@ textarea:focus-visible {
 .footer-column a {
   font-size: 0.875rem;
   color: #94A3B8;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
   transition: color var(--transition-fast);
 }
 
 .footer-column a:hover {
   color: #FFFFFF;
-}
-
-.footer-note {
-  font-size: 0.8125rem;
-  color: #64748B;
-  line-height: 1.5;
 }
 
 .footer-bottom {
@@ -1310,23 +1287,76 @@ textarea:focus-visible {
   color: #94A3B8;
 }
 
-@media (max-width: 992px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ── 14. Mobile Sticky Bottom Action Bar (< 768px) ─────────── */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(11, 36, 80, 0.08);
+  z-index: 950;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-@media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+body.nav-open .mobile-sticky-bar {
+  display: none !important;
 }
 
-/* ── Back to Top Button ────────────────────────────────────── */
+.sticky-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+
+.sticky-call {
+  background-color: var(--bg-subtle);
+  color: var(--navy);
+  border: 1.5px solid var(--border);
+}
+
+.sticky-call:hover, .sticky-call:active {
+  background-color: var(--blue-light);
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.sticky-wa {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border: 1.5px solid #25D366;
+}
+
+.sticky-wa:hover, .sticky-wa:active {
+  background-color: #1EBE5D;
+}
+
+.sticky-request {
+  background-color: var(--blue);
+  color: #FFFFFF;
+  border: 1.5px solid var(--blue);
+}
+
+.sticky-request:hover, .sticky-request:active {
+  background-color: var(--blue-hover);
+}
+
+/* ── 15. Back to Top Button ────────────────────────────────── */
 .back-to-top {
   position: fixed;
   bottom: 24px;
@@ -1346,6 +1376,7 @@ textarea:focus-visible {
   visibility: hidden;
   transition: all var(--transition-normal);
   z-index: 900;
+  touch-action: manipulation;
 }
 
 .back-to-top.visible {
@@ -1363,4 +1394,167 @@ textarea:focus-visible {
 .back-to-top svg {
   width: 18px;
   height: 18px;
+}
+
+
+/* ============================================================
+   RESPONSIVE MEDIA QUERIES (Mobile-First Architecture)
+   ============================================================ */
+
+/* ── Laptops & Medium Screens (< 1024px) ────────────────────── */
+@media (max-width: 1023px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  .header-actions .btn-primary {
+    display: none;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-image-wrapper img {
+    height: clamp(240px, 48vw, 360px);
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .supplies-banner {
+    grid-template-columns: 1fr;
+  }
+  .supplies-banner-image {
+    min-height: 200px;
+    max-height: 280px;
+  }
+  .supplies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-image img {
+    height: clamp(240px, 46vw, 340px);
+  }
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ── Tablets & Mobile Devices (< 768px) ────────────────────── */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-sticky-bar {
+    display: flex;
+  }
+  .back-to-top {
+    bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+  }
+  .header-inner {
+    height: 62px;
+  }
+  .mobile-nav {
+    top: 62px;
+    height: calc(100vh - 62px);
+    height: calc(100dvh - 62px);
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .supplies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .hero-trust {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .booking-form-card {
+    padding: 22px 16px;
+  }
+}
+
+/* ── Smartphones & Narrow Screens (< 540px) ────────────────── */
+@media (max-width: 539px) {
+  .header-actions {
+    display: none; /* Language switcher fully available in mobile drawer */
+  }
+  .site-logo-img {
+    height: 34px;
+    max-width: 175px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .supplies-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-radio-group {
+    flex-direction: column;
+  }
+  .contact-radio-label {
+    width: 100%;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ── Small Smartphones (320px–375px) ───────────────────────── */
+@media (max-width: 375px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .site-logo-img {
+    height: 30px;
+    max-width: 155px;
+  }
+  .sticky-action-btn {
+    font-size: 0.75rem;
+    padding: 0 4px;
+    gap: 4px;
+  }
+  .sticky-action-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .service-card-body {
+    padding: 14px;
+  }
+  .booking-form-card {
+    padding: 18px 12px;
+  }
 }
