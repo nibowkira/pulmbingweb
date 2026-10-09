@@ -241,9 +241,9 @@ textarea:focus-visible {
 }
 
 .site-logo-img {
-  height: 48px;
+  height: 44px;
   width: auto;
-  max-width: 260px;
+  max-width: 235px;
   display: block;
   object-fit: contain;
 }
@@ -255,24 +255,25 @@ textarea:focus-visible {
 
 @media (max-width: 480px) {
   .site-logo-img {
-    height: 38px;
-    max-width: 200px;
+    height: 36px;
+    max-width: 190px;
   }
 }
 
-/* Nav Links */
+/* Nav Links - Single Line Navigation */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: clamp(12px, 1.5vw, 22px);
 }
 
 .nav-links a {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-main);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -408,7 +409,7 @@ textarea:focus-visible {
   align-items: center;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .nav-links {
     display: none;
   }
