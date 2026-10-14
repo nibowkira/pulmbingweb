@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 4. Translations Dictionary ────────────────────────────
   const translations = {
     en: {
+      page_title: "Plumbing Services in Addis Ababa | ABAY Plumbing & Supplies",
+      meta_description: "Looking for reliable plumbing services in Addis Ababa? Contact ABAY Plumbing & Supplies for leak repairs, pipe installation, tap repair, and genuine service.",
       // Navigation
       nav_home: "Home",
       nav_services: "Services",
@@ -265,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     am: {
+      page_title: "የቧንቧ አገልግሎት በአዲስ አበባ | አባይ ቧንቧ እና እቃዎች",
+      meta_description: "በአዲስ አበባ አስተማማኝ የቧንቧ አገልግሎት ይፈልጋሉ? ለፍሳሽ ጥገና፣ ለቧንቧ ዝርጋታ እና ለተሟላ የቧንቧ ስራ አባይ ቧንቧ እና እቃዎችን ያነጋግሩ።",
       // Navigation
       nav_home: "መነሻ",
       nav_services: "አገልግሎቶች",
@@ -447,6 +451,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.setAttribute('data-lang', lang);
 
     const dict = translations[lang] || translations.en;
+    if (dict.page_title) {
+      document.title = dict.page_title;
+    }
+    if (dict.meta_description) {
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', dict.meta_description);
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', dict.meta_description);
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle && dict.page_title) ogTitle.setAttribute('content', dict.page_title);
+    }
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!--
+    ABAY Plumbing & Supplies — XML Sitemap
+    This is a single-page website. Update the <loc> URLs below
+    to your actual deployed domain before submitting to Google Search Console.
+  -->
+  <url>
+    <loc>https://www.example.com/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

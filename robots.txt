@@ -1,0 +1,9 @@
+# robots.txt — ABAY Plumbing & Supplies
+# Allow all search engine crawlers to access the site.
+# Update the Sitemap URL once the final domain is deployed.
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://www.example.com/sitemap.xml
