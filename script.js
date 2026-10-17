@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     en: {
       page_title: "Plumbing Services in Addis Ababa | ABAY Plumbing & Supplies",
-      meta_description: "Looking for reliable plumbing services in Addis Ababa? Contact ABAY Plumbing & Supplies for leak repairs, pipe installation, tap repair, and genuine service.",
+      meta_description: "Looking for a trusted plumber in Addis Ababa? ABAY Plumbing & Supplies provides expert plumbing services in Addis Ababa and quality plumbing supplies in Ethiopia.",
       // Navigation
       nav_home: "Home",
       nav_services: "Services",
@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Hero
       hero_eyebrow: "PROFESSIONAL PLUMBING SERVICES IN ADDIS ABABA",
-      hero_title: "Reliable Plumbing Services Across Addis Ababa",
-      hero_desc: "From leaking pipes and faulty taps to plumbing installations, contact ABAY Plumbing & Supplies to arrange plumbing service for your home or business.",
+      hero_title: "Reliable Plumbing Services & Supplies in Addis Ababa",
+      hero_desc: "Need a dependable plumber in Addis Ababa? From emergency pipe leaks and faucet repairs to complete sanitary installations and plumbing supplies in Ethiopia, ABAY Plumbing & Supplies delivers verified workmanship for homes and commercial facilities.",
       hero_cta_primary: "Request a Plumber",
       hero_cta_secondary: "Explore Our Services",
 
@@ -131,33 +131,33 @@ document.addEventListener('DOMContentLoaded', () => {
       trust_3_sub: "Direct phone & messaging",
 
       // Services
-      services_heading: "Plumbing Services You Can Rely On",
-      services_intro: "Explore plumbing repair, maintenance, and installation services for homes and businesses across Addis Ababa.",
+      services_heading: "Professional Plumbing Services in Addis Ababa",
+      services_intro: "Explore our comprehensive plumbing services in Addis Ababa for residential homes, apartments, and commercial businesses.",
       svc_request_link: "Request Service",
 
-      svc_1_title: "Leak Detection and Repair",
-      svc_1_desc: "Locating and resolving water leaks in pipes, joints, and hidden connections before damage occurs.",
+      svc_1_title: "Leak Detection & Pipe Repair",
+      svc_1_desc: "Rapid pinpointing and repair of concealed water leaks in pipes, joints, and ceilings to prevent structural water damage.",
 
-      svc_2_title: "Pipe Repair and Installation",
-      svc_2_desc: "Installation, replacement, and repair of PPR, PVC, and metal pipe systems for water supply and drainage.",
+      svc_2_title: "Water Supply & Drainage Installation",
+      svc_2_desc: "Full installation, rerouting, and replacement of PPR, PVC, and HDPE pipe networks for reliable water supply and sanitation.",
 
-      svc_3_title: "Tap and Faucet Repair",
-      svc_3_desc: "Fixing dripping faucets, replacing worn stopcocks, valves, and installing modern kitchen and bathroom mixers.",
+      svc_3_title: "Tap, Faucet & Valve Maintenance",
+      svc_3_desc: "Fixing dripping faucets, replacing worn stopcocks, gate valves, ball valves, and installing modern kitchen and bathroom mixers.",
 
-      svc_4_title: "Blocked Drain Assistance",
-      svc_4_desc: "Unblocking stopped sinks, showers, floor traps, and drainage lines using dedicated diagnostic tools.",
+      svc_4_title: "Blocked Drain & Sewer Assistance",
+      svc_4_desc: "Clearing stubborn blockages in kitchen sinks, shower drains, floor drains, and sewer discharge lines using specialized diagnostic tools.",
 
-      svc_5_title: "Toilet, Sink, and Shower Installation",
-      svc_5_desc: "Professional assembly and connection of sanitary ware, toilets, washbasins, and shower mixers.",
+      svc_5_title: "Toilet, Sink & Sanitary Installation",
+      svc_5_desc: "Precision mounting, sealing, and connection of toilets, washbasins, shower enclosures, and modern sanitary fixtures.",
 
-      svc_6_title: "Plumbing Fixture Replacement",
-      svc_6_desc: "Upgrading outdated or damaged plumbing fixtures, valves, traps, and fittings with reliable replacements.",
+      svc_6_title: "Plumbing Fixture Upgrades & Replacement",
+      svc_6_desc: "Upgrading aging, corroded, or inefficient valves, siphons, and fixtures with high-durability plumbing components.",
 
-      svc_7_title: "Water Supply and Pipe Connections",
-      svc_7_desc: "Connecting water tanks, pressure systems, and interior water lines for residential and commercial spaces.",
+      svc_7_title: "Water Tank & Pressure Pump Connections",
+      svc_7_desc: "Complete plumbing connections for rooftop and ground water storage tanks, booster pumps, and distribution manifolds.",
 
-      svc_8_title: "Water Heater Installation & Repair",
-      svc_8_desc: "Electrical boiler and water heater connection checks, valve replacements, and installation upon assessment.",
+      svc_8_title: "Water Heater & Boiler Repair",
+      svc_8_desc: "Safety checks, valve replacements, and plumbing connections for domestic water heaters and electric boilers upon assessment.",
 
       // How it works
       how_heading: "How It Works",
@@ -175,20 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
       step_3_desc: "Agree on the service details and appointment before the work begins.",
 
       // Supplies
-      supplies_heading: "Plumbing Supplies for Your Next Project",
-      supplies_intro: "A dedicated section for plumbing materials, fixtures, and accessories for household and commercial plumbing needs.",
+      supplies_heading: "Quality Plumbing Supplies in Ethiopia",
+      supplies_intro: "A dedicated section for high-grade plumbing materials, fixtures, and installation accessories for contractors and property owners across Ethiopia.",
       supplies_badge: "Supplies Division • Category Overview",
-      supplies_banner_title: "Plumbing Materials & Fittings",
-      supplies_banner_desc: "ABAY is organizing a selection of quality PPR pipes, brass valves, sanitary hardware, and connectors for contractors and property owners.",
+      supplies_banner_title: "Plumbing Supplies & Hardware for Contractors and Homeowners",
+      supplies_banner_desc: "Looking for genuine plumbing supplies in Ethiopia? ABAY supplies durable PPR pipes, high-grade brass valves, sanitary fixtures, and connectors for building and renovation projects across Addis Ababa.",
       supplies_banner_btn: "Inquire About Supplies",
 
       cat_1_title: "Pipes and Fittings",
       cat_1_desc: "PPR, PVC, and galvanized water supply and drainage pipes with connectors.",
-      cat_2_title: "Taps and Faucets",
+      cat_2_title: "Taps, Faucets & Mixers",
       cat_2_desc: "Kitchen basin taps, bathroom mixers, gate valves, and bibcocks.",
-      cat_3_title: "Valves and Connectors",
+      cat_3_title: "Valves, Meters & Connectors",
       cat_3_desc: "Ball valves, non-return check valves, flexible hoses, and Teflon tape.",
-      cat_4_title: "Bathroom Fixtures",
+      cat_4_title: "Bathroom & Sanitary Fixtures",
       cat_4_desc: "Washbasins, toilet cistern mechanisms, siphon traps, and shower heads.",
       cat_5_title: "Plumbing Tools and Accessories",
       cat_5_desc: "Pipe cutters, PPR fusion welding accessories, gaskets, and seals.",
@@ -210,17 +210,17 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_location: "Addis Ababa • On-Site Craftsmanship",
 
       // About
-      about_heading: "Your Local Plumbing Service in Addis Ababa",
-      about_copy: "ABAY Plumbing & Supplies is focused on helping homes and businesses in Addis Ababa with plumbing repairs, installations, and plumbing supply inquiries. Our goal is to make requesting plumbing assistance straightforward through clear communication, practical service information, and an easy contact process.",
+      about_heading: "Your Trusted Plumber in Addis Ababa",
+      about_copy: "ABAY Plumbing & Supplies provides trusted plumbing services in Addis Ababa alongside a growing catalog of plumbing supplies in Ethiopia. Whether tackling an urgent residential leak or supplying materials for commercial construction, we emphasize honest communication, clear cost estimates, and reliable on-site craftsmanship.",
 
       // Service Area
-      area_heading: "Serving Addis Ababa",
+      area_heading: "Plumbing Service Areas Across Addis Ababa",
       area_badge: "Addis Ababa, Ethiopia",
-      area_copy: "Need plumbing assistance at your home, office, shop, or commercial property? Contact ABAY Plumbing & Supplies to discuss your needs anywhere in Addis Ababa.",
+      area_copy: "Need plumbing services in Addis Ababa? ABAY serves residential and commercial clients across all major sub-cities and neighborhoods, including Bole, Kazanchis, Piassa, Sarbet, CMC, Gerji, Yeka, Lideta, Kirkos, Nifas Silk, and surrounding districts.",
 
       // Booking Form
-      booking_heading: "Request a Plumber",
-      booking_intro: "Tell us a little about your plumbing issue, and we can discuss the next steps with you.",
+      booking_heading: "Request a Plumber in Addis Ababa",
+      booking_intro: "Describe your plumbing issue or supply request. Our team will review your inquiry and contact you promptly via phone or WhatsApp.",
 
       form_name_label: "Full Name",
       form_name_placeholder: "Enter your full name",
@@ -267,8 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     am: {
-      page_title: "የቧንቧ አገልግሎት በአዲስ አበባ | አባይ ቧንቧ እና እቃዎች",
-      meta_description: "በአዲስ አበባ አስተማማኝ የቧንቧ አገልግሎት ይፈልጋሉ? ለፍሳሽ ጥገና፣ ለቧንቧ ዝርጋታ እና ለተሟላ የቧንቧ ስራ አባይ ቧንቧ እና እቃዎችን ያነጋግሩ።",
+      page_title: "የቧንቧ ጥገና አዲስ አበባ | የቧንቧ ሥራ እና እቃዎች | አባይ",
+      meta_description: "በአዲስ አበባ አስተማማኝ የቧንቧ ጥገና እና የቧንቧ ሥራ ይፈልጋሉ? አባይ ቧንቧ እና እቃዎች ለውሃ ፍሳሽ ጥገና፣ ለቧንቧ ዝርጋታ እና ለጥራት የቧንቧ እቃዎች ፈጣን አገልግሎት ይሰጣል።",
       // Navigation
       nav_home: "መነሻ",
       nav_services: "አገልግሎቶች",
@@ -285,9 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
       brand_tagline: "አስተማማኝ ውሃ። አስተማማኝ አገልግሎት።",
 
       // Hero
-      hero_eyebrow: "በአዲስ አበባ ሙያዊ የቧንቧ አገልግሎት",
-      hero_title: "በአዲስ አበባ አስተማማኝ የቧንቧ አገልግሎት",
-      hero_desc: "ከተበላሹ እና ከሚፈሱ ቧንቧዎች ጀምሮ እስከ አዳዲስ ዝርጋታዎች ድረስ ለመኖሪያ ቤትዎ ወይም ለንግድ ተቋምዎ የቧንቧ ባለሙያ ለማግኘት አባይን ያነጋግሩ።",
+      hero_eyebrow: "በአዲስ አበባ ፈጣን እና ሙያዊ የቧንቧ አገልግሎት",
+      hero_title: "በአዲስ አበባ አስተማማኝ የቧንቧ ጥገና እና የቧንቧ ሥራ",
+      hero_desc: "በአዲስ አበባ አስተማማኝ የቧንቧ ባለሙያ ይፈልጋሉ? ከድንገተኛ የውሃ ፍሳሽ እና የቧንቧ ብልሽት ጥገና ጀምሮ እስከ አዳዲስ የቧንቧ ዝርጋታዎች እና ጥራት ያላቸው የቧንቧ እቃዎች ድረስ አባይ ቧንቧ እና እቃዎች (ABAY) ደረጃውን የጠበቀ አገልግሎት ይሰጣል።",
       hero_cta_primary: "ቧንቧ ባለሙያ ይጠይቁ",
       hero_cta_secondary: "አገልግሎቶቻችንን ይመልከቱ",
 
@@ -297,11 +297,11 @@ document.addEventListener('DOMContentLoaded', () => {
       trust_2_title: "የአካባቢ አገልግሎት",
       trust_2_sub: "መላው አዲስ አበባን ያገለግላል",
       trust_3_title: "ቀጥተኛ ግንኙነት",
-      trust_3_sub: "በስልክ እና በመልዕክት",
+      trust_3_sub: "በስልክ እና በWhatsApp (+251 975 753 773)",
 
       // Services
-      services_heading: "የሚተማመኑባቸው የቧንቧ አገልግሎቶች",
-      services_intro: "በአዲስ አበባ ለመኖሪያ ቤቶችና ንግድ ተቋማት የሚሰጡ የተሟሉ የጥገና እና የዝርጋታ ስራዎችን ይመልከቱ።",
+      services_heading: "በአዲስ አበባ የምንሰጣቸው የቧንቧ ሥራ እና ጥገና አገልግሎቶች",
+      services_intro: "ለመኖሪያ ቤቶች፣ ለአፓርታማዎችና ለንግድ ተቋማት የሚሰጡ የተሟሉ የቧንቧ ጥገና፣ ዝርጋታ እና ፍተሻ አገልግሎቶች፦",
       svc_request_link: "አገልግሎት ይጠይቁ",
 
       svc_1_title: "የውሃ ፍሳሽ ጥገና",
@@ -344,11 +344,11 @@ document.addEventListener('DOMContentLoaded', () => {
       step_3_desc: "ስራው ከመጀመሩ በፊት በዝርዝሩ እና በቀጠሮው ሰዓት ላይ ይስማሙ።",
 
       // Supplies
-      supplies_heading: "ለማንኛውም ስራ የሚያስፈልጉ የቧንቧ እቃዎች",
-      supplies_intro: "ለመኖሪያ ቤቶች እና ለግንባታ ፕሮጀክቶች የሚያስፈልጉ የቧንቧ መለዋወጫዎች እና እቃዎች ማስተዋወቂያ ክፍል፦",
+      supplies_heading: "ጥራት ያላቸው የቧንቧ እቃዎች በአዲስ አበባ እና በኢትዮጵያ",
+      supplies_intro: "ለኮንትራክተሮች፣ ለቧንቧ ባለሙያዎች እና ለቤት ባለቤቶች የሚሆኑ ደረጃቸውን የጠበቁ የቧንቧ መለዋወጫዎች እና እቃዎች፦",
       supplies_badge: "የእቃዎች ክፍል • ዝርዝር መረጃ",
-      supplies_banner_title: "ጥራት ያላቸው የቧንቧ እቃዎች",
-      supplies_banner_desc: "አባይ ጥራት ያላቸውን የPPR ቧንቧዎች፣ ቫልቮች፣ ማያያዣዎች እና የመታጠቢያ ቤት እቃዎችን ለደንበኞች ለማቅረብ እየሰራ ይገኛል።",
+      supplies_banner_title: "ለኮንትራክተሮች እና ለቤት ባለቤቶች የሚሆኑ የቧንቧ እቃዎች",
+      supplies_banner_desc: "በኢትዮጵያ ጥራት ያላቸው የቧንቧ እቃዎች ይፈልጋሉ? አባይ ዘላቂ የPPR ቧንቧዎችን፣ ጠንካራ የናስ ቫልቮችን፣ የፍሳሽ ማስተላለፊያዎችን እና የመታጠቢያ ቤት እቃዎችን በአዲስ አበባ ያቀርባል።",
       supplies_banner_btn: "ስለ እቃዎች ይጠይቁ",
 
       cat_1_title: "ቧንቧዎችና ማገናኛዎች",
@@ -379,17 +379,17 @@ document.addEventListener('DOMContentLoaded', () => {
       proj_location: "አዲስ አበባ • በእውነተኛ ስራ የተረጋገጠ",
 
       // About
-      about_heading: "የአካባቢዎ አስተማማኝ የቧንቧ አገልግሎት",
-      about_copy: "አባይ ቧንቧ እና እቃዎች (ABAY Plumbing & Supplies) በአዲስ አበባ ከተማ ውስጥ ለሚገኙ መኖሪያ ቤቶችና ንግድ ተቋማት የቧንቧ አገልግሎቶችን እና አስፈላጊ የቧንቧ እቃዎችን በቀላሉ ተደራሽ ለማድረግ ይሰራል። ትኩረታችን በግልጽ ግንኙነት፣ በታማኝ የዋጋ ግምት እና አስተማማኝ አገልግሎት ላይ ነው።",
+      about_heading: "የአካባቢዎ አስተማማኝ የቧንቧ ባለሙያ በአዲስ አበባ",
+      about_copy: "አባይ ቧንቧ እና እቃዎች (ABAY Plumbing & Supplies) በአዲስ አበባ ከተማ ውስጥ አስተማማኝ የቧንቧ ጥገና፣ አዳዲስ የቧንቧ ዝርጋታዎችን እና ጥራት ያላቸውን የቧንቧ እቃዎች ተደራሽ የሚያደርግ ድርጅት ነው። ግልጽ የዋጋ ግምት፣ ጥራት ያለው ስራ እና ፈጣን ምላሽ ዋና መርሆዎቻችን ናቸው።",
 
       // Service Area
-      area_heading: "አዲስ አበባን እናገለግላለን",
+      area_heading: "በአዲስ አበባ የምንሸፍናቸው የአገልግሎት አካባቢዎች",
       area_badge: "አዲስ አበባ፣ ኢትዮጵያ",
-      area_copy: "በመኖሪያ ቤትዎ፣ በቢሮዎ፣ በሱቅዎ ወይም በንግድ ተቋምዎ የቧንቧ ስራ ይፈልጋሉ? በአዲስ አበባ ውስጥ በማንኛውም አካባቢ አባይን ያነጋግሩ።",
+      area_copy: "በመኖሪያ ቤትዎ፣ በቢሮዎ፣ በሱቅዎ ወይም በግንባታ ፕሮጀክትዎ የቧንቧ ስራ ይፈልጋሉ? ቦሌ፣ ካዛንቺስ፣ ፒያሳ፣ ሳርቤት፣ ሲኤምሲ፣ ገርጂ፣ የካ፣ ልደታ፣ ቂርቆስ፣ ንፋስ ስልክ እና መላው አዲስ አበባ ድረስ ፈጣን አገልግሎት እንሰጣለን።",
 
       // Booking Form
-      booking_heading: "ቧንቧ ባለሙያ ይጠይቁ",
-      booking_intro: "ያጋጠመዎትን የቧንቧ ችግር ይንገሩን፤ ቀጣዩን እርምጃ አብረን እንወያያለን።",
+      booking_heading: "የቧንቧ ባለሙያ ይጠይቁ | ፈጣን ግንኙነት",
+      booking_intro: "ያጋጠመዎትን የቧንቧ ችግር ወይም የሚፈልጉትን የቧንቧ እቃ ይንገሩን፤ በስልክ ወይም በWhatsApp ወዲያውኑ ምላሽ እንሰጣለን።",
 
       form_name_label: "ሙሉ ስም",
       form_name_placeholder: "ስምዎትን ያስገቡ",
@@ -441,8 +441,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
-  // ── 5. Language Switcher (Default: English) ───────────────
-  let currentLang = localStorage.getItem('abay_lang') || 'en';
+  // ── 5. Language Switcher & Crawlable Page Preservation ────
+  // Determine language from the document's html lang attribute first,
+  // ensuring static pages (/ and /am/) load with their intended crawlable language
+  const docLang = document.documentElement.lang || 'en';
+  let currentLang = docLang;
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -477,23 +480,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update active class on switch buttons
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
+    // Update active class on switch buttons and links
+    document.querySelectorAll('.lang-switch button, .lang-switch a').forEach(btn => {
       const btnLang = btn.getAttribute('data-lang');
       if (btnLang === lang) {
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('aria-current', 'page');
       } else {
         btn.classList.remove('active');
         btn.setAttribute('aria-pressed', 'false');
+        btn.removeAttribute('aria-current');
       }
     });
   }
 
-  document.querySelectorAll('[data-lang]').forEach(btn => {
-    btn.addEventListener('click', () => {
+  document.querySelectorAll('.lang-switch button, .lang-switch a').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       const targetLang = btn.getAttribute('data-lang');
+      if (targetLang) {
+        localStorage.setItem('abay_lang', targetLang);
+      }
+      // If it's a regular anchor tag with a navigation target, let the browser navigate
+      if (btn.tagName === 'A' && btn.getAttribute('href') && !btn.getAttribute('href').startsWith('#')) {
+        return;
+      }
       if (targetLang && (targetLang === 'en' || targetLang === 'am')) {
+        e.preventDefault();
         applyLanguage(targetLang);
       }
     });

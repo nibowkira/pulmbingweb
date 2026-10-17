@@ -1,5 +1,6 @@
 # robots.txt — ABAY Plumbing & Supplies
 User-agent: *
 Allow: /
+Allow: /am/
 
 Sitemap: https://abayplumbing.vercel.app/sitemap.xml

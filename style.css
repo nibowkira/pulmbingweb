@@ -70,7 +70,8 @@ body {
   position: relative;
 }
 
-body[data-lang="am"] {
+body[data-lang="am"],
+html[lang="am"] body {
   font-family: var(--font-am);
 }
 
@@ -348,6 +349,7 @@ textarea:focus-visible {
   justify-content: center;
   touch-action: manipulation;
   line-height: 1;
+  text-decoration: none;
 }
 
 .lang-switch-creative .lang-btn:hover {
@@ -399,7 +401,8 @@ textarea:focus-visible {
   padding: 3px;
 }
 
-.lang-switch:not(.lang-switch-creative) button {
+.lang-switch:not(.lang-switch-creative) button,
+.lang-switch:not(.lang-switch-creative) a {
   background: none;
   border: none;
   padding: 5px 10px;
@@ -411,9 +414,14 @@ textarea:focus-visible {
   border-radius: 4px;
   transition: all var(--transition-fast);
   touch-action: manipulation;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.lang-switch:not(.lang-switch-creative) button.active {
+.lang-switch:not(.lang-switch-creative) button.active,
+.lang-switch:not(.lang-switch-creative) a.active {
   background-color: #FFFFFF;
   color: var(--navy);
   box-shadow: var(--shadow-sm);
